@@ -1,21 +1,46 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import reproduzir from "./scream/reproduzir";
+import pastas from "./scream/pastas";
+import musicas from "./scream/musicas";
+import { setStatusBarHidden } from "expo-status-bar";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Pastas">
+                <Stack.Screen name="Reproduzir"
+                    component={reproduzir}
+                    options={{
+                        title: '',
+                        headerStyle: {
+                            backgroundColor: '#0D1A25'
+                        },
+                        headerTintColor: '#00C2FF',
+                    }} />
+                <Stack.Screen
+                    name="Pastas"
+                    component={pastas}
+                    options={{
+                        title: 'Pastas',
+                        headerStyle: {
+                            backgroundColor: '#0D1A25',
+                        },
+                        headerTintColor: '#00C2FF',
+                    }} />
+                <Stack.Screen name="Musicas"
+                    component={musicas}
+                    options={{
+                        title: '',
+                        headerStyle: {
+                            backgroundColor: '#0D1A25',
+                        },
+                        headerTintColor: '#00C2FF',
+                    }} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
