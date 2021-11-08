@@ -34,7 +34,7 @@ export default function App() {
                 <Stack.Screen name="Musicas"
                     component={musicas}
                     options={{
-                        title: '',
+                        title: 'Musicas',
                         headerStyle: {
                             backgroundColor: '#0D1A25',
                         },

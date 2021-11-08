@@ -17,7 +17,7 @@ export default function musicas({ navigation }) {
           </View>
 
           <View style={styles.containerNomeMusico}>
-            <Text style={styles.textNomeMusico}>Alexandro Vilas Boas</Text>
+            <Text style={styles.textNomeMusico}>{"\n"}Alexandro Vilas Boas</Text>
           </View>
 
           <View style={styles.containerTempMusica}>
@@ -38,5 +38,33 @@ const styles = StyleSheet.create({
     backgroundColor: '#0D1A25',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  btnMusicaR: {
+    marginTop: -600,
+  },
+  containerGeral: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    right: 45,
+  },
+  containerNomeMusica: {
+    left: 20,
+    bottom: 10,
+  },
+  textNomeMusica: {
+    color: '#fff',
+  },
+  containerNomeMusico: {
+    right: 25,
+    top: 3,
+  },
+  textNomeMusico: {
+    color: '#fff',
+  },
+  containerTempMusica: {
+    left: 90,
+  },
+  textTempMusica: {
+    color: '#fff',
   },
 });
