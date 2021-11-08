@@ -1,23 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Slider } from 'react-native';
 
 export default function reproduzir() {
+
+  const [segundos, setSegundos] = useState(0);
+
   return (
     <View style={styles.container}>
 
       <View style={styles.containerFoto}>
-        <Image style={styles.foto} source={require('../src/onda.png')} />
+        <Image style={styles.foto} source={require('../src/Image.jpeg')} />
       </View>
 
       <View style={styles.containerTemp}>
 
-        <View style={styles.barTemp}>
-          <View style={styles.tempLive}></View>
-        </View>
+        <Slider style={styles.barTemp}
+          value={segundos}
+          onValueChange={(value) => {
+            setSegundos(value)
+          }}></Slider>
 
         <View style={styles.containerTempos}>
-          <Text style={styles.tempAtual}>1:23</Text>
+          <Text style={styles.tempAtual}>{segundos}</Text>
           <Text style={styles.tempTotal}>3:12</Text>
         </View>
 
@@ -29,13 +34,13 @@ export default function reproduzir() {
       </View>
 
       <View style={styles.painelControle}>
-        
+
         <TouchableOpacity style={styles.btnArrowBack}>
           <Image style={styles.arrowBack} source={require('../src/arrowBack.png')} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btnPause}>
-          <Image style={styles.iconPause} source={require('../src/pause.png')} />
+          <Image style={styles.iconPause} source={require('../src/play.png')} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btnArrowNext}>
@@ -66,18 +71,11 @@ const styles = StyleSheet.create({
     marginTop: Platform.OS === 'android' ? 10 : -100,
   },
   barTemp: {
-    height: 4,
+    height: 2,
     width: 330,
-    backgroundColor: '#336894',
-    borderRadius: 50,
-  },
-  tempLive: {
-    height: 4,
-    width: 150,
-    backgroundColor: '#00C2FF',
-    borderRadius: 50,
   },
   containerTempos: {
+    paddingTop: 10,
     flexDirection: 'row',
   },
   tempAtual: {

@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
   },
   textNomeMusico: {
     color: '#fff',
+    fontWeight: '100',
   },
   containerTempMusica: {
     left: 90,
